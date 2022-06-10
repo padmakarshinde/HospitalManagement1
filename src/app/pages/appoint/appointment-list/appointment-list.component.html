@@ -1,0 +1,37 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+<mat-toolbar *ngIf="successmsg" color="accent">{{successmsg}}</mat-toolbar>
+<mat-toolbar *ngIf="errormsg" color="warn">{{errormsg}}</mat-toolbar>
+
+<div class="mt-5">
+    <table class="table table-bordered">
+        <thead class="thead" >
+            <tr >
+
+                <th>Email</th>
+            
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Gender</th>
+                <th>PhoneNo</th>
+                <th>Address</th>
+                <th>symptoms</th>
+                
+            </tr>
+        </thead>
+        <tbody class="tbody">
+            <tr *ngFor="let patient of appointmentDetails ">
+
+                <td>{{patient.email}}</td>
+        
+                <td>{{patient.firstname}}</td>
+                <td>{{patient.lastname}}</td>
+            
+                <td>{{patient.gender}}</td>
+                <td>{{patient.phoneno}}</td>
+                <td>{{patient.address}}</td>
+                <td>{{patient.treatement}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>

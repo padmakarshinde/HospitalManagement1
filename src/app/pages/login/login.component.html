@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title> LogIn </title>
+    
+</head>
+    <body >
+        
+    <div class="login-box">
+        
+        
+
+          
+
+            <form (ngSubmit)="formSubmit()" action="home.html" method="post" class="container" style="color:bisque" > 
+                
+        <img src="../../../assets/img/avatar2.png" alt=""class="avatar"> 
+        <h1 style='color:red'>Login Here!!</h1>
+            <p>UserName</p>
+            <input [(ngModel)]="loginData.username" name="username" type="text" class="form-control" id="username" >
+
+            <p>Password</p>
+            <input [(ngModel)]="loginData.password" name="password" type="password" class="form-control" id="password">
+            <!--<input type="submit" name="submit" value="Sign In"></a>-->
+			<br>
+			<button class="button" type="submit" style="vertical-align:middle" ><span>Log In</span></button>
+			
+			<br><br>
+            <li>
+                <a  routerLink="/signup">New User?Register</a>
+            </li>
+              
+            </form>
+        
+        
+        </div>
+    
+    </body>
+</html>
+<router-outlet></router-outlet>

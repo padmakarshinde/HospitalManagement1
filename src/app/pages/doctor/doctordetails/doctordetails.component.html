@@ -1,0 +1,48 @@
+<div class="container">
+
+    <div class=" mt-5" style="align-items:center;">
+        <h1 align="center" color:black><strong>Add Details</strong></h1>
+    </div>
+    <div class=" mt-5" style="padding:20px;">
+        <form #register="ngForm" (ngSubmit)="registerDoctor(register)">
+            <div class="form-group" >
+            <label><strong>Doctor Name :</strong></label>
+            <input type="text" #doctorname (ngModel)="doctorname" name="doctorname" id="doctorname" class="form-control" placeholder="name" >
+            </div>
+            <div class="form-group" >
+                <label><strong>Doctor Email :</strong></label>
+                <input type="text" #email (ngModel)="email" name="email" id="email" class="form-control" placeholder="Email" >
+                </div>
+                <div class="form-group" >
+                    <label><strong>Doctor phoneno :</strong></label>
+                    <input type="text" #phoneno (ngModel)="phoneno" name="phoneno" id="phoneno" class="form-control" placeholder="doctorphoneno" >
+                    </div>
+                    <div class="form-group" >
+                        <label><strong>Doctor Address :</strong></label>
+                        <input type="text" #address (ngModel)="address" name="address" id="address" class="form-control" placeholder="doctoraddress" >
+                        </div>
+                        <div class="form-group" >
+                            <label><strong>Doctor Dob :</strong></label>
+                            <input type="text" #dob (ngModel)="dob" name="dob" id="dob" class="form-control" placeholder="doctordob" >
+                            </div>
+                            <div class="form-group" >
+                                <label><strong>Password :</strong></label>
+                                <input type="text" #password (ngModel)="password" name="password" id="password" class="form-control" placeholder="password" >
+                                </div>
+            <div class="form-group">
+                <label><strong>Specialist:</strong></label>
+                <input type="text" #specialist (ngModel)="specialist" name="specialist" id="specialist" class="form-control" placeholder="specialist" >         
+            </div>
+            <div class="form-group">
+                <label ><strong>OpdTime:</strong></label>
+                <input type="text" #opdtime (ngModel)="opdtime" name="opdtime" id="opdtime" class="form-control" placeholder="opdtime" >       
+            </div>
+            <div class="form-group">
+                <label><strong>DoctorFees:</strong></label>
+                <input type="text" #doctorfees (ngModel)="doctorfees" name="doctorfees" id="doctorfees" class="form-control" placeholder="doctorfees" >      
+            </div>
+            <div>
+                <input type="Submit" value="Register" class="btn btn-primary w-100">
+            </div>
+        </form>
+    </div>

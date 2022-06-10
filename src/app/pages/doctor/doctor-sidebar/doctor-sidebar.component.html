@@ -1,0 +1,32 @@
+<mat-card>
+    <mat-action-list>
+      <div mat-subheader>Menu</div>
+  
+      <button routerLink="/doctor-dashboard" mat-list-item>
+        <mat-icon mat-list-icon></mat-icon>Home
+      </button>
+      <button mat-list-item routerLink="/doctor-dashboard/profile">
+        <mat-icon mat-list-icon></mat-icon> Profile
+      </button>
+
+      <button mat-list-item routerLink="/doctor-dashboard/patientdetails">
+        <mat-icon mat-list-icon></mat-icon> Add Patient
+      </button>
+
+      <button mat-list-item routerLink="/doctor-dashboard/appointment-list">
+        <mat-icon mat-list-icon></mat-icon>View Appointment
+      </button>
+
+
+      <button 
+      (click)="logout()"
+      *ngIf="login.isLoggedIn "
+      mat-list-item routerLink="/doctor-dashboard/profile">
+        <mat-icon mat-list-icon></mat-icon> Logout
+      </button>
+    </mat-action-list>
+</mat-card>
+  
+
+
+  

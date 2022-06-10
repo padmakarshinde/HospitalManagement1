@@ -1,0 +1,160 @@
+<div class="container">
+    <div class="mt-5" style="align-items:center;">
+        <h1 align="center" color:black>Add Patient Details</h1>
+    </div>
+    <div class=" mt-5" >
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+            <div class="form-group" >
+            <label>Patient Name:</label>
+            <input type="text" #name (ngModel)="name" name="name" id="name" class="form-control" placeholder="name" >
+            </div>
+            <div class="form-group">
+                <label>Patient Email:</label>
+                <input type="text" #email (ngModel)="email" name="email" id="email" class="form-control" placeholder="email" >         
+            </div>
+            <div class="form-group">
+                <label>Patient Password:</label>
+                <input type="text" #password (ngModel)="password" name="password" id="password" class="form-control" placeholder="password" >         
+            </div>
+            <div class="form-group">
+                <label>Patient FirstName:</label>
+                <input type="text" #firstname (ngModel)="firstname" name="firstname" id="firstname" class="form-control" placeholder="FirstName" >         
+            </div>
+            <div class="form-group">
+                <label>Patient LastName:</label>
+                <input type="text" #lastname (ngModel)="lastname" name="lastname" id="lastname" class="form-control" placeholder="LastName" >         
+            </div>
+            <div class="form-group">
+                <label>Patient Dob:</label>
+                <input type="text" #dob (ngModel)="dob" name="dob" id="dob" class="form-control" placeholder="DOB" >         
+            </div>
+            <div class="form-group">
+                <label>Patient Gender:</label>
+                <input type="text" #gender (ngModel)="gender" name="gender" id="gender" class="form-control" placeholder="Gender" >         
+            </div>
+
+            <div class="form-group">
+                <label>Patient PhoneNo:</label>
+                <input type="text" #phoneno (ngModel)="phoneno" name="phoneno" id="phoneno" class="form-control" placeholder="PhoneNo" >         
+            </div>
+
+
+            <div class="form-group">
+                <label>Patient Address:</label>
+                <input type="text" #address (ngModel)="address" name="address" id="address" class="form-control" placeholder="address" >       
+            </div>
+            <div class="form-group">
+                <label>Patient Treatement:</label>
+                <input type="text" #treatement (ngModel)="treatement" name="treatement" id="treatement" class="form-control" placeholder="treatement" >      
+            </div>
+            <div>
+                <input type="Submit" value="Register" class="btn btn-primary w-100">
+            </div>
+        </form>
+    </div>
+    <div class="mt-5"> 
+        <table class="table table-bordered">
+            <thead class="thead" >
+                <tr >
+                    <th>PatientID</th>
+                    <th>Patient Name</th>
+                    <th>Patient Email</th>
+                
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Patient DOB</th>
+                    <th>Gender</th>
+                    <th>PhoneNo</th>
+                    <th>Patient Address</th>
+                    <th>Patient Treatement</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                <tr *ngFor="let patient of patientDetails ">
+                    <td>{{patient.id}}</td>
+                    <td>{{patient.name}}</td>
+                    <td>{{patient.email}}</td>
+            
+                    <td>{{patient.firstname}}</td>
+                    <td>{{patient.lastname}}</td>
+                    <td>{{patient.dob}}</td>
+                    <td>{{patient.gender}}</td>
+                    <td>{{patient.phoneno}}</td>
+                    <td>{{patient.address}}</td>
+                    <td>{{patient.treatement}}</td>
+                    <td><button type="button " class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="edit(patient)">Edit</button></td>
+                    <td><button type="button" class="btn btn-danger" (click)="deletePatient(patient)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Patient</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #updateForm="ngForm" (ngSubmit)="updatePatient()">
+                <div class="form-group" >
+                    <label>Patient Id:</label>
+                <input type="text" disabled #id [(ngModel)]="patientToUpdate.id" name="id" id="id" class="form-control" placeholder="id" >
+                </div>
+                <div>
+                <label>Patient Name:</label>
+                <input type="text" #name [(ngModel)]="patientToUpdate.name" name="name" id="name" class="form-control" placeholder="name" >
+                </div>
+                <div class="form-group">
+                    <label>Patient Email:</label>
+                    <input type="text" #email [(ngModel)]="patientToUpdate.email" name="email" id="email" class="form-control" placeholder="email" >         
+                </div>
+                <div class="form-group">
+                    <label>Patient Password:</label>
+                    <input type="text" #password [(ngModel)]="patientToUpdate.password" name="password" id="password" class="form-control" placeholder="password" >         
+                </div>
+                <div>
+                    <label>Patient FirstName:</label>
+                    <input type="text" #firstname [(ngModel)]="patientToUpdate.firstname" name="firstname" id="firstname" class="form-control" placeholder="firstname" >
+                    </div>
+                    <div>
+                        <label>Patient LastName:</label>
+                        <input type="text" #lastname [(ngModel)]="patientToUpdate.lastname" name="lastname" id="lastname" class="form-control" placeholder="lastname" >
+                        </div>
+                       
+                 <div>
+                            <label>Patient DOB:</label>
+                            <input type="text" #dob [(ngModel)]="patientToUpdate.dob" name="dob" id="dob" class="form-control" placeholder="dob" >
+                            </div>    
+                            <div>
+                                <label>Patient Gender:</label>
+                                <input type="text" #gender [(ngModel)]="patientToUpdate.gender" name="gender" id="gender" class="form-control" placeholder="gender" >
+                                </div>            
+                                <div>
+                                    <label>Patient PhoneNo:</label>
+                                    <input type="text" #phoneno [(ngModel)]="patientToUpdate.phoneno" name="phoneno" id="phoneno" class="form-control" placeholder="phoneno" >
+                                    </div>
+
+
+
+                <div class="form-group">
+                    <label>Patient Address:</label>
+                    <input type="text" #address [(ngModel)]="patientToUpdate.address" name="address" id="address" class="form-control" placeholder="address" >       
+                </div>
+                <div class="form-group">
+                    <label>Patient Treatement:</label>
+                    <input type="text" #treatement [(ngModel)]="patientToUpdate.treatement" name="treatement" id="treatement" class="form-control" placeholder="treatement" >      
+                </div>
+                <div>
+                    <input type="Submit" value="Update" class="btn btn-primary w-100">
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+    
+</div>
